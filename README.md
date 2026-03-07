@@ -77,4 +77,4 @@ npm run dev
 The CNN model currently achieves high accuracy in classifying "Red" (High Risk) zones based on meteorological telemetry. Detailed performance metrics and ROC curves are located in the `tests/accuracy_results/` directory.
 
 ---
-*Developed with focus on meteorological data science and geospatial visualization.*
+
