@@ -22,7 +22,7 @@ class LightningPredictor:
         df = df.dropna()
         
         # Preprocessing matching the training script
-        df.rename(columns={'lat': 'latitude', 'lon': 'longitude', 'humidity_percent': 'humidity'}, inplace=True)
+        df.rename(columns={'lat': 'latitude', 'lon': 'longitude'}, inplace=True)
         
         # Fit KMeans for spatial clustering
         coords = df[['latitude', 'longitude']]
