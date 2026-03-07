@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>⚡ LPM Dashboard</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Leaflet + plugins CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+</head>
+<body>
+
+  <!-- Subtle lightning background -->
+  <div class="lightning-bg" aria-hidden="true">
+    <div class="flash flash-1"></div>
+    <div class="flash flash-2"></div>
+    <div class="flash flash-3"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <div class="nav-logo">⚡ LPM Dashboard</div>
+      <button id="hamburger" class="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#ideaSection" class="nav-link">Idea &amp; Novelty</a></li>
+      <li><a href="#mapSection" class="nav-link">Dashboard</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header / Hero -->
+  <header id="home" class="hero">
+    <h1>⚡ Lightning Strike Prediction Dashboard</h1>
+    <p class="sub">AI-Powered Real-Time Lightning Risk Monitoring</p>
+  </header>
+
+  <!-- Idea & Novelty -->
+  <section id="ideaSection" class="container-section idea-section">
+    <div class="idea-head">
+      <h2>💡 Idea & Novelty</h2>
+      <button id="toggleIdeaBtn" class="tiny-btn">Hide</button>
+    </div>
+    <p class="idea-p">
+      LPM integrates <strong>K-Means spatial clustering</strong> with a <strong>CNN</strong> severity predictor and real-time visualization.
+      It provides interpretable geospatial zones (Red/Orange/Yellow), continuous updates from meteorological features, and an interactive map UI.
+    </p>
+    <ul class="idea-list">
+      <li>⚙️ Hybrid ML: clustering + supervised CNN for accuracy and interpretability.</li>
+      <li>🌍 Geospatial risk zoning using latitude & longitude clustering.</li>
+      <li>📡 Interactive dashboard with heatmap, clusters, and alerts; ready to connect to Flask endpoints.</li>
+    </ul>
+  </section>
+
+  <!-- Main dashboard area -->
+  <main class="main-grid">
+    <section id="mapSection" class="map-section">
+      <div id="map" aria-label="Lightning risk map"></div>
+      <div class="map-legend" aria-hidden="true">
+        <span class="legend-dot legend-high"></span> High
+        <span class="legend-dot legend-mod"></span> Moderate
+        <span class="legend-dot legend-low"></span> Low
+      </div>
+    </section>
+
+    <aside class="stats-column">
+      <div class="card">
+        <h3>Zone Distribution</h3>
+        <canvas id="pieChart" height="160"></canvas>
+      </div>
+
+      <div class="card">
+        <h3>Hourly Strike Trend</h3>
+        <canvas id="barChart" height="160"></canvas>
+      </div>
+
+      <div class="card alert-card">
+        <h3>⚠️ Alerts</h3>
+        <ul id="alertsList" class="alerts-list">
+          <li><span class="red-dot"></span> No current high-risk alerts</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- About -->
+  <section id="about" class="container-section about-section">
+    <h2>About This Project</h2>
+    <p>
+      Built by engineering students, LPM combines ML, deep learning and geospatial visualization to improve lightning prediction and public safety.
+    </p>
+  </section>
+
+  <footer class="footer">
+    <p>Developed with Flask • Leaflet • TensorFlow | LPM © 2025</p>
+  </footer>
+
+  <!-- Scripts (loaded at end for better performance) -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
